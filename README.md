@@ -1,0 +1,2 @@
+node-openerp-client
+===================
