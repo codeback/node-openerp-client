@@ -1,0 +1,39 @@
+{ "name":           "openerp-client",
+  "version":        "0.0.14",
+  "description":    "Openep client",
+  "homepage":       "",
+  "author":         "Codeback Software <info@codeback.es> (http://codeback.es/)",
+  "keywords": [
+    "openerp", "openobject"
+  ],
+  "main":           "lib/client",
+  "scripts": {
+    "build":        "coffee --bare --compile --output lib/ src/*.coffee",
+    "prepublish":   "coffee --bare --compile --output lib/ src/*.coffee",
+    "postpublish":  "rm -rf html man7 lib"
+  },
+  "engines": {
+    "node":         ">= 0.8.0"
+  },
+  "dependencies": {
+    "xmlrpc":                 "1.1.x",
+    "q":                      "0.9.x"
+  },
+  "devDependencies": {
+    "coffee-script":          "1.6.x",
+    "mocha":                  ">= 1.15.x",
+    "chai":                   ">= 1.8.x"
+  },
+  "repository": {
+    "type":   "git",
+    "url":    "https://github.com/codeback/node-openerp-client"
+  },
+  "bugs": {
+    "url":    "https://github.com/codeback/node-openerp-client/issues"
+  },
+  "licenses": [
+    { "type": "MIT",
+      "url":  "https://github.com/codeback/node-openerp-client/blob/master/LICENSE"
+    }
+  ]
+}
