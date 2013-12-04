@@ -1,6 +1,6 @@
 { "name":           "openerp-client",
-  "version":        "0.0.14",
-  "description":    "Openep client",
+  "version":        "0.0.1",
+  "description":    "Openerp client",
   "homepage":       "",
   "author":         "Codeback Software <info@codeback.es> (http://codeback.es/)",
   "keywords": [
