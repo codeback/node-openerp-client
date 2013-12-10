@@ -40,5 +40,4 @@ class Connector
 
         @objectCall('execute', params)
 
-
 module.exports = Connector

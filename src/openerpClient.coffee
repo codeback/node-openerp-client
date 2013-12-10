@@ -9,7 +9,7 @@ Q = require 'q'
 Connector = require "./connector"
 
 models = {}
-["Product"].map (modelName) ->
+["Product", "Partner"].map (modelName) ->
     name = modelName.toLowerCase()
     models[modelName] = require "./models/" + name
 
