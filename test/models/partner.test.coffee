@@ -45,7 +45,26 @@ describe "OePartner", ->
             partnerId = 114
 
             client.read(partnerId).then (partner) =>
-                console.log partner
                 partner.name.should.equal "ACME"
                 done()               
+            .done()
+
+    describe "login", ->
+
+        it "debe acceder correctamente", (done) ->
+            client.login("acme", "123456").then (partner) =>
+                partner.name.should.equal "ACME"
+                done()
+            .done()
+
+        it "no debe acceder si el usuario no existe", (done) ->
+            client.login("noexiste", "123456").fail (err) =>
+                err.message.should.equal "user not found"
+                done()
+            .done()
+
+        it "no debe acceder si el password es incorrecto", (done) ->
+            client.login("acme", "654321").fail (err) =>
+                err.message.should.equal "incorrect password"
+                done()
             .done()

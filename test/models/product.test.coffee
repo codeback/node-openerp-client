@@ -47,6 +47,7 @@ describe "OeProduct", ->
             partnerId = 114
 
             client.getProducts(priceListId, partnerId).then (products) =>
+                console.log products
                 products[0].price.should.equal dummy.price 
                 done()               
             .done()
