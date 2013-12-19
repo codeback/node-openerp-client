@@ -9,8 +9,8 @@ Q = require 'q'
 Connector = require "./connector"
 
 models = {}
-["Product", "Partner"].map (modelName) ->
-    name = modelName.toLowerCase()
+["Product", "Partner", "SaleOrder"].map (modelName) ->
+    name = modelName[0].toLowerCase() + modelName[1..-1]    
     models[modelName] = require "./models/" + name
 
 class OpenerpClient

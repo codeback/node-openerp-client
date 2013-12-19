@@ -53,7 +53,7 @@ describe "OePartner", ->
 
         it "debe acceder correctamente", (done) ->
             client.login("acme", "123456").then (partner) =>
-                partner.name.should.equal "ACME"
+                partner.name.OpenERP.Partnershould.equal "ACME"
                 done()
             .done()
 

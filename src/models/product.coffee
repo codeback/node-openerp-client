@@ -10,11 +10,10 @@ Common = require "./common"
 
 class OeProduct extends Common
 
-    constructor: (@connector) ->
-        super @connector, "product.product"
-
+    constructor: (@connector) ->        
         @fields = ["name_template"]
-
+        super @connector, "product.product", @fields
+        
     getProducts: (priceListId, partnerId) =>
         @connector.execute('external.adapter.product', 'get_products',
             @fields, priceListId, partnerId)

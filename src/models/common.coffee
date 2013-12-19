@@ -4,7 +4,7 @@
 
 class Common
 
-    constructor: (@connector, @model) ->
+    constructor: (@connector, @model, @readFields) ->
 
     create: (fields) =>
         @connector.execute(@model, 'create', fields)
@@ -13,6 +13,7 @@ class Common
         @connector.execute(@model, 'search', args, offset, limit)
 
     read: (ids, fields) =>
+        fields ?= @readFields
         @connector.execute(@model, 'read', ids, fields)
 
     write: (ids, data) =>

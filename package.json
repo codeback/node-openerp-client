@@ -8,8 +8,8 @@
   ],
   "main":           "lib/client",
   "scripts": {
-    "build":        "coffee --bare --compile --output lib/ src/*.coffee",
-    "prepublish":   "coffee --bare --compile --output lib/ src/*.coffee",
+    "build":        "coffee --bare --compile --output lib/ src/",
+    "prepublish":   "coffee --bare --compile --output lib/ src/",
     "postpublish":  "rm -rf html man7 lib"
   },
   "engines": {
