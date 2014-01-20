@@ -11,7 +11,7 @@ Common = require "./common"
 class OeProduct extends Common
 
     constructor: (@connector) ->        
-        @fields = ["name_template", "categ_id"]
+        @fields = ["name_template", "categ_id", "qty_available", "supply_method"]
         super @connector, "product.product", @fields
         
     getProducts: (priceListId, partnerId, fields) =>
