@@ -22,5 +22,17 @@ class OeSaleOrder extends Common
         @connector.execute('external.adapter.sale.order', 'get_by_partner',
             partnerId, fields)
 
+    getOrder: (orderId, fields) ->
+
+        if !fields            
+            fields = @fields
+            fields.push ["order_line"]...
+
+
+        console.log "fiel", fields
+
+        @connector.execute('external.adapter.sale.order', 'get_order',
+            orderId, fields)
+
 
 module.exports = OeSaleOrder
