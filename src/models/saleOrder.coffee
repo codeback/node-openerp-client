@@ -13,7 +13,7 @@ class OeSaleOrder extends Common
     partner = null
 
     constructor: (@connector) ->        
-        @fields = ["state"]
+        @fields = ["state", "date_order", "name", "amount_untaxed"]
         super @connector, "sale.order", @fields
 
     getByPartner: (partnerId, fields) ->
