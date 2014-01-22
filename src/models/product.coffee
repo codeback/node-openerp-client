@@ -14,10 +14,13 @@ class OeProduct extends Common
         @fields = ["name_template", "categ_id", "qty_available", "supply_method"]
         super @connector, "product.product", @fields
         
-    getProducts: (priceListId, partnerId, fields) =>
-        fields ?= @fields 
+    getProducts: (priceListId, partnerId, args, fields) =>
+        if !fields
+            fields = @fields 
+            fields.push "image_small"
+            
         @connector.execute('external.adapter.product', 'get_products',
-            @fields, priceListId, partnerId)
+            priceListId, partnerId, args, fields)
 
     getRelatedProducts: (prodId, fields) =>
         fields ?= @fields 

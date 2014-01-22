@@ -13,9 +13,9 @@ class OePartner extends Common
     partner = null
 
     constructor: (@connector) ->        
-        @fields = ["name", "comercial", "image", "street", "street2", "city",
+        @fields = ["name", "comercial", "image_medium", "image", "street", "street2", "city",
             "state_id", "zip", "country_id", "website", "phone", "mobile", "fax",
-            "email", "property_product_pricelist"]
+            "email", "vat"]
 
         super @connector, "res.partner", @fields
 
