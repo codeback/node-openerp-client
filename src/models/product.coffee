@@ -28,6 +28,3 @@ class OeProduct extends Common
             prodId, fields)
 
 module.exports = OeProduct
-
-
-

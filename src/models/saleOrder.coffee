@@ -28,19 +28,25 @@ class OeSaleOrder extends Common
             fields = @fields
             fields.push ["order_line"]...
 
-
         @connector.execute('external.adapter.sale.order', 'get_order',
-            orderId, fields)
+            parseInt(orderId), fields)
 
-    updateOrder: (orderId, lines, pricelist_id, partner_id, fields) ->
+    createOrder: (lines, pricelistId, partnerId) ->
+
+        @connector.execute('external.adapter.sale.order', 'create_order',
+            lines, pricelistId, partnerId)
+
+    updateOrder: (orderId, lines, pricelistId, partnerId, fields) ->
 
         if !fields            
             fields = @fields
             fields.push ["order_line"]...
 
         @connector.execute('external.adapter.sale.order', 'write_order',
-            orderId, lines, pricelist_id, partner_id, fields)
+            parseInt(orderId), lines, pricelistId, partnerId, fields)
    
-
+    confirmOrder: (orderId) ->        
+        @connector.execute('sale.order', 'action_button_confirm',
+            [parseInt(orderId)])
 
 module.exports = OeSaleOrder
