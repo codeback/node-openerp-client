@@ -13,14 +13,14 @@ class OeProduct extends Common
     constructor: (@connector) ->        
         @fields = ["name_template", "categ_id", "qty_available", "supply_method"]
          
-        fields = @fields
+        fields = @fields.slice(0)
         fields.push ["image", "product_technical_specifications_ids", "dimensions", "weight"]...
 
         super @connector, "product.product", fields
         
     getProducts: (priceListId, partnerId, args, fields) =>
         if !fields
-            fields = @fields 
+            fields = @fields.slice(0) 
             fields.push "image_small"
             
         @connector.execute('external.adapter.product', 'get_products',
