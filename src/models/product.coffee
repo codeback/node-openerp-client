@@ -37,6 +37,3 @@ class OeProduct extends Common
         @connector.execute('product.technical.specifications','read', specIds, fields)    
 
 module.exports = OeProduct
-
-
-
