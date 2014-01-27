@@ -22,7 +22,6 @@ class OePartner extends Common
     login: (username, password) =>
 
         promise = Q.defer()
-
         @connector.execute('external.adapter.partner', 'login',
             username, password).then (res) =>
                 if res.status == 200                
