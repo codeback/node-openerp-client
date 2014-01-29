@@ -13,7 +13,7 @@ class OeSaleOrder extends Common
     partner = null
 
     constructor: (@connector) ->        
-        @fields = ["state", "date_order", "name", "amount_untaxed"]
+        @fields = ["state", "date_order", "name", "amount_untaxed", "invoice_ids", "user_id"]
         super @connector, "sale.order", @fields
 
     getByPartner: (partnerId, fields) ->
@@ -26,7 +26,7 @@ class OeSaleOrder extends Common
 
         if !fields            
             fields = @fields
-            fields.push ["order_line"]...
+            fields.push ["order_line", "amount_total"]...
 
         @connector.execute('external.adapter.sale.order', 'get_order',
             parseInt(orderId), fields)
@@ -48,5 +48,9 @@ class OeSaleOrder extends Common
     confirmOrder: (orderId) ->        
         @connector.execute('sale.order', 'action_button_confirm',
             [parseInt(orderId)])
+
+    getInvoicePdf: (orderId, partnerId) ->        
+        @connector.execute('external.adapter.sale.order', 'get_invoice_pdf',
+            [parseInt(orderId)], partnerId)
 
 module.exports = OeSaleOrder
