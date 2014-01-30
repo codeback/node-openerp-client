@@ -14,7 +14,9 @@ class OeProduct extends Common
         @fields = ["name_template", "categ_id", "qty_available", "supply_method", "default_code"]
          
         fields = @fields.slice(0)
-        fields.push ["image", "product_technical_specifications_ids", "dimensions", "weight_sheet"]...
+        fields.push ["image", "product_technical_specifications_ids", "dimensions_sheet", "weight_sheet", 
+          "description_sheet", "base_sheet", "gas_sheet", "wheels_sheet", "seat_sheet", "back_sheet",
+          "finishes_sheet", "size_sheet", "box_size_sheet", "min_purchase_sheet", "box_volume_sheet"]...
 
         super @connector, "product.product", fields
         
