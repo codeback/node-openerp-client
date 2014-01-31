@@ -45,9 +45,24 @@ class OeSaleOrder extends Common
         @connector.execute('external.adapter.sale.order', 'write_order',
             parseInt(orderId), lines, pricelistId, partnerId, fields)
    
-    confirmOrder: (orderId) ->        
-        @connector.execute('sale.order', 'action_button_confirm',
-            [parseInt(orderId)])
+    confirmOrder: (orderId, comments) =>        
+        if comments
+            promise = Q.defer()
+
+            @write [parseInt(orderId)], 
+                note: comments
+            .then(() =>
+                @connector.execute('sale.order', 'action_button_confirm',
+                    [parseInt(orderId)])
+            ).then(() =>
+                promise.resolve()
+            ).fail (err) =>
+                promise.reject err
+
+            return promise.promise
+        else
+            @connector.execute('sale.order', 'action_button_confirm',
+                    [parseInt(orderId)])
 
     getInvoicePdf: (orderId, partnerId) ->        
         @connector.execute('external.adapter.sale.order', 'get_invoice_pdf',
