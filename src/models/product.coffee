@@ -15,7 +15,8 @@ class OeProduct extends Common
          
         fields = @fields.slice(0)
         fields.push ["image", "product_technical_specifications_ids", "dimensions_sheet", "weight_sheet", 
-          "description_sheet", "base_sheet", "gas_sheet", "wheels_sheet", "seat_sheet", "back_sheet",
+          "description_sheet", "structure_sheet", "base_sheet", "gas_sheet", "wheels_sheet", "seat_interior_sheet", 
+          "back_interior_sheet", "seat_exterior_sheet", "back_exterior_sheet", "mechanism_sheet",
           "finishes_sheet", "size_sheet", "box_size_sheet", "min_purchase_sheet", "box_volume_sheet"]...
 
         super @connector, "product.product", fields
