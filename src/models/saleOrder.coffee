@@ -22,6 +22,12 @@ class OeSaleOrder extends Common
         @connector.execute('external.adapter.sale.order', 'get_by_partner',
             partnerId, fields)
 
+    getByPartnerAndMonth: (partnerId, fields) ->
+        fields ?= @fields 
+
+        @connector.execute('external.adapter.sale.order', 'get_by_partner_and_month',
+            partnerId, fields)
+
     getOrder: (orderId, fields) ->
 
         if !fields            

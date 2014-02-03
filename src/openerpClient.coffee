@@ -9,7 +9,7 @@ Q = require 'q'
 Connector = require "./connector"
 
 models = {}
-["Product", "Partner", "SaleOrder", "Employee", "User"].map (modelName) ->
+["Product", "Partner", "SaleOrder", "Employee", "User", "State"].map (modelName) ->
     name = modelName[0].toLowerCase() + modelName[1..-1]    
     models[modelName] = require "./models/" + name
 
