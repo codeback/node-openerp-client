@@ -15,7 +15,7 @@ class OePartner extends Common
     constructor: (@connector) ->        
         @fields = ["name", "comercial", "image_medium", "image", "street", "street2", "city",
             "state_id", "zip", "country_id", "website", "phone", "mobile", "fax", "user_id",
-            "email", "vat"]
+            "email", "vat", "bank_ids"]
 
         super @connector, "res.partner", @fields
 
