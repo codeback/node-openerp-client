@@ -57,10 +57,10 @@ describe "OeProduct", ->
         it "debe obtener los productos relacionados con el producto pasado como Id", (done) ->
 
             prodId = 3
-            fields = ["name_template", "default_code"]
+            fields = ["name", "default_code"]
 
             client.getRelatedProducts(prodId, fields).then (products) =>
-                products[0].name_template.should.equal dummy.name_template 
+                products[0].name.should.equal dummy.name 
                 done()               
             .done()
 

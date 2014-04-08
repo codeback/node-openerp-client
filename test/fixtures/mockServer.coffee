@@ -41,11 +41,11 @@ server.on "execute", (err, params, callback) ->
         if action == "get_products" or "getRelatedProducts"
             res = [
                 id: dummy.testId
-                name_template: dummy.name_template
+                name: dummy.name
                 price: dummy.price
             ,
                 id: dummy.testId + 1
-                name_template: dummy.name_template + " B"
+                name: dummy.name + " B"
                 price: dummy.price   
             ]
                     

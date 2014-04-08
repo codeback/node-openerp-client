@@ -12,9 +12,13 @@ class Common
     search: (args, offset=0, limit=1000) =>
         @connector.execute(@model, 'search', args, offset, limit)
 
-    read: (ids, fields) =>
+    read: (ids, fields, context) =>
         fields ?= @readFields
-        @connector.execute(@model, 'read', ids, fields)
+        context ?= {}
+
+        context.lang = "es_ES"
+
+        @connector.execute(@model, 'read', ids, fields, context)
 
     write: (ids, data) =>
         @connector.execute(@model, 'write', ids, data)

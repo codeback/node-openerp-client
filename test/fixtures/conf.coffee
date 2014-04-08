@@ -10,7 +10,7 @@ dummyData =
     testId: 6
     itemIds: [1,3,5,7]
     price: 100
-    name_template: "product"
+    name: "product"
 
 module.exports = 
     conf: conf

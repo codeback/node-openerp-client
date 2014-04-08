@@ -11,7 +11,7 @@ Common = require "./common"
 class OeProduct extends Common
 
     constructor: (@connector) ->        
-        @fields = ["name_template", "categ_id", "qty_available", "supply_method", "default_code", "image_small"]
+        @fields = ["name", "categ_id", "qty_available", "supply_method", "default_code", "image_small"]
          
         fields = @fields.slice(0)
         fields.push ["web_visible", "image", "product_technical_specifications_ids", "dimensions_sheet", "weight_sheet", 
